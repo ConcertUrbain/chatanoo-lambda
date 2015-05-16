@@ -1,0 +1,14 @@
+{
+  "name": "ga_reporter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathieu Desvé <mathieu.desve@me.com>",
+  "license": "ISC",
+  "dependencies": {
+    "universal-analytics": "^0.3.6"
+  }
+}
