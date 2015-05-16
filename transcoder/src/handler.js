@@ -7,11 +7,6 @@ exports.handler = function(event, context) {
   // Get the object from the event and show its content type
   var bucket = event.Records[0].s3.bucket.name;
   var key = event.Records[0].s3.object.key;
-  
-  if (bucket != 'chatanoo-medias-input') {
-    context.succeed();
-    return;
-  }
 
   var mediaId = key.replace(/\.[^/.]+$/, "");
   var outputs = null;
@@ -57,7 +52,7 @@ exports.handler = function(event, context) {
   };
 
   transcoder.createJob(params, function(err, data) {
-    if (err) { 
+    if (err) {
       console.log(err, err.stack);
       context.fail('Error', "Error Creating Job: " + err);
     } else {

@@ -16,8 +16,9 @@ exports.handler = function(event, context) {
         switch (data.method) {
             case "addItem":
                 var item = data.params[0];
-                content = "Une nouvelle contribution (#{item.id}) à été ajoutée à la mosaïc";
+                content = "Une nouvelle contribution (" + item.id + ") à été ajoutée à la mosaïc";
 
+                // ['carolannbraun@free.fr', 'mes-idees-aussi@cg94.fr']
                 _( ['mathieu.desve@me.com'] ).each( function(email) {
 
                     mandrill( '/messages/send', {
@@ -36,7 +37,7 @@ exports.handler = function(event, context) {
                             context.succeed();
                         }
                     });
-                })
+                });
                 break;
             default:
                 context.succeed();

@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:eu-west-1:175828319502:chatanoo-events-staging:5d9a6864-3a12-45e3-b50e-83877b699777",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "cdf870c6-895c-5297-b6e9-3d17c59cad33",
+                "TopicArn": "arn:aws:sns:eu-west-1:175828319502:chatanoo-events-staging",
+                "Subject": null,
+                "Message": "{\"name\":\"items\",\"session\":8,\"data\":{\"method\":\"addItem\",\"params\":\"[{\\\"__className\\\":\\\"Vo_Query\\\",\\\"id\\\":\\\"76\\\",\\\"content\\\":\\\"MON LOGEMENT edit\\\",\\\"description\\\":\\\"T\\\\u00e9moignez et Proposez !\\\",\\\"_user\\\":\\\"211\\\",\\\"_isValid\\\":\\\"1\\\",\\\"addDate\\\":\\\"2012.08.06 16:07:52\\\",\\\"setDate\\\":\\\"2015.05.15 12:12:30\\\",\\\"publishDate\\\":null,\\\"endDate\\\":null,\\\"__className\\\":\\\"Vo_Query\\\"}]\",\"byUser\":\"19\",\"result\":\"76\"}}",
+                "Timestamp": "2015-05-16T13:47:44.888Z",
+                "SignatureVersion": "1",
+                "Signature": "sm9yCPs6OHdFiCYolxH2ZCM6ofPvA7rYojiSJOlK589TjdyF4meZwxJLYroZ5U2XWBmcXJVTqE0shykOxttqtBRaeFY8oPTr5p8Nbk/Q3gjpP+9iQoYYevxOqBRZNWlfIKrnTanRX2wn0z+4yaPymO+/lXGSszWb6JZZEUpWO2yPfCyRMXbK0NnljCfpLzdRN7cMCTn8u71IHGz6SEvRX6Axm3Kfv9ws1Ak3tPINUQmHqFYZFz3qHA4QIjRSPuj5h7g3qTeuGVOUNjDwbjDKDdySSimvZf+vrwth7xWnpypk38SPZ2qmisfekivgpbD0u++sdCpA/EjkdvBZqShaJQ==",
+                "SigningCertUrl": "https://sns.eu-west-1.amazonaws.com/SimpleNotificationService-d6d679a1d18e95c2f9ffcf11f4f9e198.pem",
+                "UnsubscribeUrl": "https://sns.eu-west-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-west-1:175828319502:chatanoo-events-staging:5d9a6864-3a12-45e3-b50e-83877b699777",
+                "MessageAttributes": {}
+            }
+        }
+    ]
+}
