@@ -5,18 +5,18 @@ iam:
       name: arn:aws:iam::175828319502:role/lambda_s3_exec_role
 
 lambda:
-  name: MediasTranscoderStaging
-  description: Chatanoo MediasTranscoder Staging
+  name: MediasTranscoder
+  description: Chatanoo MediasTranscoder
   handler: handler.handler
   runtime: nodejs
   memory_size: 128
   timeout: 3
   event_sources:
     -
-      arn: arn:aws:s3:::chatanoo-medias-input-staging
+      arn: arn:aws:s3:::chatanoo-medias-input
 
 env: 
-  - TRANSCODER_PIPELINE_ID=1431801295288-by1f8r
+  - TRANSCODER_PIPELINE_ID=1431762470072-gnq6il
 
   - MP4_PRESET_ID=1431764878757-w37ugf
   - WEBM_PRESET_ID=1431765105700-dodtxt
