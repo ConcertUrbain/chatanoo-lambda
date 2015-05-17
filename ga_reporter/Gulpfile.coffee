@@ -12,14 +12,14 @@ coffee = require('gulp-coffee')
 runSequence = require('run-sequence')
 _ = require('underscore')
 
-configFile = if process.env.ENV 
-  "./config-#{process.env.ENV}.yml" 
-else 
+configFile = if process.env.ENV
+  "./config-#{process.env.ENV}.yml"
+else
   './config-staging.yml'
 
 # First we need to clean out the dist folder and remove the compiled zip file.
 gulp.task 'clean', (cb) ->
-  del './dist', del('./archive.zip', cb)
+  del './dist', del('./dist.zip', cb)
 
 # The js task could be replaced with gulp-coffee as desired.
 gulp.task 'coffee', ->
@@ -68,7 +68,7 @@ gulp.task 'update', ->
   AWS.config.credentials = new AWS.SharedIniFileCredentials( profile: config.profile )
   lambda = new AWS.Lambda( apiVersion: '2015-03-31' )
 
-  params = 
+  params =
     FunctionName: config.lambda.name
     Description: config.lambda.description
     Handler: config.lambda.handler
@@ -94,7 +94,7 @@ gulp.task 'update-events-source', ->
           gutil.log(err) if err
 
     for eventSource in config.lambda.event_sources
-      params = 
+      params =
         EventSourceArn: eventSource.arn
         FunctionName: config.lambda.name
         StartingPosition: 'LATEST'
@@ -112,7 +112,7 @@ gulp.task 'upload', ->
   AWS.config.credentials = new AWS.SharedIniFileCredentials( profile: config.profile )
   lambda = new AWS.Lambda( apiVersion: '2015-03-31' )
 
-  params = 
+  params =
     FunctionName: config.lambda.name
     ZipFile: new Buffer(fs.readFileSync('./dist.zip'))
 
@@ -126,24 +126,24 @@ gulp.task 'upload', ->
 # The key to deploying as a single command is to manage the sequence of events.
 gulp.task 'default', (callback) ->
   runSequence(
-    [ 'clean' ], 
-    [ 'coffee', 'dist', 'npm', 'env'], 
-    [ 'zip' ], 
-    [ 'upload' ], 
+    [ 'clean' ],
+    [ 'coffee', 'dist', 'npm', 'env'],
+    [ 'zip' ],
+    [ 'upload' ],
     callback
   )
 
 gulp.task 'build', (callback) ->
   runSequence(
-    [ 'clean' ], 
-    [ 'coffee', 'dist', 'npm', 'env'], 
+    [ 'clean' ],
+    [ 'coffee', 'dist', 'npm', 'env'],
     callback
   )
 
 gulp.task 'deploy', (callback) ->
   runSequence(
     [ 'env' ],
-    [ 'zip' ], 
-    [ 'upload' ], 
+    [ 'zip' ],
+    [ 'upload' ],
     callback
   )
