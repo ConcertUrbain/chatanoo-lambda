@@ -1,0 +1,19 @@
+profile: mathieu.desve
+region: eu-west-1
+iam:
+  role:
+      name: arn:aws:iam::175828319502:role/aws-lambda-kinesis-role
+
+lambda:
+  name: KinesisS3Archiver
+  description: Copy Kinesis Events to S3
+  handler: kinesis_s3_archiver/index.handler
+  runtime: nodejs
+  memory_size: 128
+  timeout: 3
+  event_sources:
+    -
+      arn: arn:aws:kinesis:eu-west-1:175828319502:stream/core
+
+env:
+  - S3_BUCKET=chatanoo-logs

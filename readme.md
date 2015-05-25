@@ -8,17 +8,14 @@ Install Gulp
 npm install -g gulp
 ```
 
-Go to the right folder
-
-```
-cd [MY_FUNCTION]
-```
-
 List of functions:
 
 * GA Reporter
 * Mailer
 * Transcoder
+* MergeS3Logs
+* KinesisS3Archiver
+* ExportToDynamo
 
 Build the function
 
@@ -31,13 +28,13 @@ gulp build
 In staging, for each project (builded before)
 
 ```
-gulp deploy
+gulp deploy --function [FUNCTION]
 ```
 
 In Production, for each project (builded before)
 
 ```
-ENV=production gulp deploy
+gulp deploy --function [FUNCTION] --production
 ```
 
 ### Lambda Tools
@@ -45,11 +42,11 @@ ENV=production gulp deploy
 Update Lambda Function Configuration
 
 ```
-gulp update
+gulp update --function [FUNCTION]
 ```
 
 or
 
 ```
-ENV=production gulp update
+gulp update --function [FUNCTION] --production
 ```

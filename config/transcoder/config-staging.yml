@@ -1,0 +1,25 @@
+profile: mathieu.desve
+region: eu-west-1
+iam:
+  role:
+      name: arn:aws:iam::175828319502:role/lambda_s3_exec_role
+
+lambda:
+  name: MediasTranscoderStaging
+  description: Chatanoo MediasTranscoder Staging
+  handler: transcoder/index.handler
+  runtime: nodejs
+  memory_size: 128
+  timeout: 3
+  event_sources:
+    -
+      arn: arn:aws:s3:::chatanoo-medias-input-staging
+
+env:
+  - TRANSCODER_PIPELINE_ID=1431801295288-by1f8r
+
+  - MP4_PRESET_ID=1431764878757-w37ugf
+  - WEBM_PRESET_ID=1431765105700-dodtxt
+  - FLV_PRESET_ID=1431765233842-9ulfbc
+  - MP3_PRESET_ID=1431766141904-lpijfs
+  - OGG_PRESET_ID=1431766187146-dooe52

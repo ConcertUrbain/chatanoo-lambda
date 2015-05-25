@@ -2,3 +2,7 @@
 node_modules
 dist
 dist.zip
+
+.env
+.env.staging
+.env.production
