@@ -2,7 +2,7 @@ profile: mathieu.desve
 region: eu-west-1
 iam:
   role:
-      name: arn:aws:iam::175828319502:role/lambda_s3_exec_role
+      name: arn:aws:iam::175828319502:role/aws-lambda-dynamo-role
 
 lambda:
   name: ExportToDynamoStaging
