@@ -23,3 +23,7 @@ env:
   - FLV_PRESET_ID=1431765233842-9ulfbc
   - MP3_PRESET_ID=1431766141904-lpijfs
   - OGG_PRESET_ID=1431766187146-dooe52
+
+  - OUTPUT_BUCKET=chatanoo-medias-output-staging
+  - MAX_WIDTH=1024
+  - MAX_HEIGHT=768
